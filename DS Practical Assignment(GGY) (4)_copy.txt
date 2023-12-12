@@ -1587,6 +1587,9 @@ try:
 except valueError:
     print("Invalid input, Please enter a list of numbers separated by spaces")
 
+OUTPUT
+Enter the list of numbers separated by spaces:- 2 3 4 5 
+The mean is:-  3.5
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q2)Median
@@ -1608,6 +1611,9 @@ except ValueError:
     print("Invalid input, Please enter a list of numbers separated by spaces")
 median=calculate_median(numbers)
 print("Median:- ", median)
+OUTPUT
+Enter the numbers:- 2 4 5 6 7
+Median:-  5
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1634,6 +1640,9 @@ try:
 except ValueError:
               print("Invalid input, Please enter a list of numbers separated by spaces")
 
+OUTPUT
+Enter the numbers:- 4 6 7 7 8
+the mode is:7
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q4)Standard Deviation
@@ -1647,6 +1656,9 @@ try:
 except ValueError:
         print("Invalid input, Please enter a list of numbers separated by spaces")
 print("SD",std_dev)
+OUTPUT
+Enter the list of numbers separated by spaces:- 4 5 6 7  7
+SD 1.3038404810405297
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q5)Program to calculate the Standard Deviation for Grouped Data
@@ -1684,7 +1696,15 @@ for i in range(len(class_range)):
     print(f"{lower}-{upper} Frequency:{frequencies[i]}")
 print("\nMean:",mean)
 print("Standard Deviation:",std_deviation)
+OUTPUT
+Grouped Data:-
+10-20 Frequency:5
+20-30 Frequency:8
+30-40 Frequency:12
+40-50 Frequency:7
 
+Mean: 4.75
+Standard Deviation: 28.57391730232311
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q6) Rage
@@ -1697,6 +1717,11 @@ input_string=input("Enter the numbers:- ")
 values=[float(x) for x in input_string.split()]
 range_of_values = calculate_range(values)
 print("Range of values:", range_of_values)
+
+OUTPUT
+Enter the numbers:- 10 8 4 7 8
+Range of values: 6.0
+
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1718,6 +1743,10 @@ event = input("Enter the event to calculate its probability: ")
 # Calculate and display the probability
 probability = calculate_probability(data, event)
 print("The probability of '{}' occurring is: {:.2f}".format(event, probability))
+OUTPUT
+Enter the data (values separated by spaces): 4 5 6 7 8 
+Enter the event to calculate its probability: 2
+The probability of '2' occurring is: 0.00
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1756,6 +1785,10 @@ correlation_coef = correlation(x_values, y_values)
 
 print("Correlation coefficient:", correlation_coef)
 
+OUTPUT
+Enter a series of values for x separated by spaces: 1 2 3 4 5 6
+Enter a series of values for y separated by spaces: 6 7 8 9 9 8
+Correlation coefficient: 0.7772909266606614
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q9) Probability using Binomial Distribution
@@ -1776,6 +1809,11 @@ p = float(input("Enter the probability of success (p): "))
 probability = binomial_probability(n, k, p)
 print("The probability is:", probability)
 
+OUTPUT
+Enter the total number of trials (n): 10
+Enter the number of successful trials (k): 5
+Enter the probability of success (p): 0.5
+The probability is: 0.24609375
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 #Q10) Program for to Differentiate List and Tuple
 input_value = input("Enter a value: ")
@@ -1790,6 +1828,10 @@ elif input_value.startswith("(") and input_value.endswith(")"):
     print("Elements in the tuple:", input_tuple)
 else:
     print("Invalid input")
+OUTPUT
+Enter a value: [1,2,3,4,5]
+It's a list
+Elements in the list: [1, 2, 3, 4, 5]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1809,7 +1851,15 @@ for i in range(num_pairs):
 # Print the dictionary
 print("Dictionary:", my_dict)
 
-
+OUTPUT
+Enter the number of key-value pairs: 3
+Enter a key: NAME
+Enter a value: RUT
+Enter a key: RYT
+Enter a value: YGJM
+Enter a key: TJNG
+Enter a value: HGFN,
+Dictionary: {'NAME': 'RUT', 'RYT': 'YGJM', 'TJNG': 'HGFN,'}
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
