@@ -1571,4 +1571,249 @@ Input array: [100, 20, 40, 50, 10, 30]
 Sorted array: [10, 20, 30, 40, 50, 100]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+STAT USING PY
+
+#Q1) Mean
+import statistics
+input_string=input("Enter the list of numbers separated by spaces:- ")
+try:
+    number=[float(x) for x in input_string.split()]
+    mean=statistics.mean(number)
+    print("The mean is:- ",mean)
+except valueError:
+    print("Invalid input, Please enter a list of numbers separated by spaces")
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q2)Median
+import statistics
+input_string=input("Enter the numbers:- ")
+try:
+    numbers=[int(x) for x in input_string.split()]
+    def calculate_median(numbers):
+        sorted_numbers=sorted(numbers)
+        n=len(sorted_numbers)
+        if n%2==0:
+            middle1 = sorted_numbers[n//2-1]
+            middle2 = sorted_numbers[n//2]
+            median = (middle1+middle2)/2
+        else:
+            median = sorted_numbers[n//2]
+        return median
+except ValueError:
+    print("Invalid input, Please enter a list of numbers separated by spaces")
+median=calculate_median(numbers)
+print("Median:- ", median)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q3)Mode
+import statistics
+def calculate_mode(numbers):
+    number_count={}
+    for num in numbers:
+        if num in number_count:
+            number_count[num] += 1
+        else:
+            number_count[num]= 1
+    max_count = max(number_count.values())
+    mode = [num for num,count in number_count.items() if count == max_count]
+    return mode
+input_string=input("Enter the numbers:- ")
+try:
+    numbers=[int(x) for x in input_string.split()]
+    mode = calculate_mode(numbers)
+    if len(mode)==1:
+        print(f"the mode is:{mode[0]}")
+    else:
+        print("There are multiple mode:",mode)
+except ValueError:
+              print("Invalid input, Please enter a list of numbers separated by spaces")
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q4)Standard Deviation
+import math
+input_string=input("Enter the list of numbers separated by spaces:- ")
+try:
+    data=[float(x) for x in input_string.split()]
+    mean = sum(data)  /len(data)
+    varience = sum((x - mean)**2 for x in data) / (len(data)-1)
+    std_dev = math.sqrt(varience)
+except ValueError:
+        print("Invalid input, Please enter a list of numbers separated by spaces")
+print("SD",std_dev)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q5)Program to calculate the Standard Deviation for Grouped Data
+import math 
+
+def calculate_midpoints(classes):
+    midpoints = []
+    for class_range in classes:
+        lower,upper=class_range
+        midpoint=(lower+upper)/2
+        midpoints.append(midpoint)
+    return midpoints
+
+def calculate_mean(midpoints,frequencies):
+    sum_product = sum(midpoints[i]+frequencies[i] for i in range(len(midpoints)))
+    total_frequency = sum(frequencies)
+    mean = sum_product / total_frequency
+    return mean
+
+def calculate_standard_deviation(midpoints,frequencies,mean):
+    sum_squred_diff = sum(frequencies[i]*(midpoints[i] - mean)**2 for i in range(len(midpoints)))
+    total_frequency = sum(frequencies)
+    varience = sum_squred_diff / total_frequency
+    std_deviation = math.sqrt(varience)
+    return std_deviation
+
+class_range = [(10,20),(20,30),(30,40),(40,50)]
+frequencies = [5,8,12,7]
+midpoints = calculate_midpoints(class_range)
+mean = calculate_mean(midpoints,frequencies)
+std_deviation = calculate_standard_deviation(midpoints,frequencies,mean)
+print("Grouped Data:-")
+for i in range(len(class_range)):
+    lower,upper = class_range[i]
+    print(f"{lower}-{upper} Frequency:{frequencies[i]}")
+print("\nMean:",mean)
+print("Standard Deviation:",std_deviation)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q6) Rage
+def calculate_range(numbers):
+    minimum = min(numbers)
+    maximum = max(numbers)
+    range = maximum - minimum
+    return range
+input_string=input("Enter the numbers:- ")
+values=[float(x) for x in input_string.split()]
+range_of_values = calculate_range(values)
+print("Range of values:", range_of_values)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q7) Probability
+def calculate_probability(data, event):
+    # Count the occurrences of the event in the data
+    event_count = data.count(event)
+    
+    # Calculate the probability
+    probability = event_count / len(data)
+    
+    return probability
+
+
+# Get data from the user
+data = input("Enter the data (values separated by spaces): ").split()
+event = input("Enter the event to calculate its probability: ")
+
+# Calculate and display the probability
+probability = calculate_probability(data, event)
+print("The probability of '{}' occurring is: {:.2f}".format(event, probability))
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q8)Correlation Coefficient
+import math
+
+def mean(data):
+    return sum(data) / len(data)
+
+def correlation(x, y):
+    mean_x = mean(x)
+    mean_y = mean(y)
+    n = len(x)
+    numerator = 0
+    denominator_x = 0
+    denominator_y = 0
+
+    for i in range(n):
+        numerator += (x[i] - mean_x) * (y[i] - mean_y)
+        denominator_x += (x[i] - mean_x) ** 2
+        denominator_y += (y[i] - mean_y) ** 2
+
+    correlation_coefficient = numerator / math.sqrt(denominator_x * denominator_y)
+    return correlation_coefficient
+
+# User input for series of values
+x_values = input("Enter a series of values for x separated by spaces: ").split()
+y_values = input("Enter a series of values for y separated by spaces: ").split()
+
+# Convert input values to floats
+x_values = list(map(float, x_values))
+y_values = list(map(float, y_values))
+
+# Calculate correlation coefficient
+correlation_coef = correlation(x_values, y_values)
+
+print("Correlation coefficient:", correlation_coef)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q9) Probability using Binomial Distribution
+import math
+
+def binomial_probability(n, k, p):
+    q = 1 - p
+    bin_coeff = math.factorial(n) / (math.factorial(k) * math.factorial(n-k))
+    probability = bin_coeff * (p**k) * (q**(n-k))
+    return probability
+
+# Get user input
+n = int(input("Enter the total number of trials (n): "))
+k = int(input("Enter the number of successful trials (k): "))
+p = float(input("Enter the probability of success (p): "))
+
+# Calculate and display the probability
+probability = binomial_probability(n, k, p)
+print("The probability is:", probability)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+#Q10) Program for to Differentiate List and Tuple
+input_value = input("Enter a value: ")
+
+if input_value.startswith("[") and input_value.endswith("]"):
+    print("It's a list")
+    input_list = eval(input_value)
+    print("Elements in the list:", input_list)
+elif input_value.startswith("(") and input_value.endswith(")"):
+    print("It's a tuple")
+    input_tuple = eval(input_value)
+    print("Elements in the tuple:", input_tuple)
+else:
+    print("Invalid input")
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
+
+#Q11) Program to use of the Dictionary
+# Prompt the user for the number of key-value pairs
+num_pairs = int(input("Enter the number of key-value pairs: "))
+
+# Initialize an empty dictionary
+my_dict = {}
+
+# Iterate over the range of the number of pairs
+for i in range(num_pairs):
+    key = input("Enter a key: ")
+    value = input("Enter a value: ")
+    my_dict[key] = value
+
+# Print the dictionary
+print("Dictionary:", my_dict)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
 
