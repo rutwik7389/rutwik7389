@@ -225,6 +225,74 @@ while True:
     print()
 
 print("Exiting...")
+
+
+OUTPUT
+Enter your choice: 1
+Enter the number of elements: 6
+Enter element: 10
+Enter element: 20
+Enter element: 30
+Enter element: 40
+Enter element: 50
+Enter element: 60
+#
+Enter your choice: 10
+Linked List: 10 20 30 40 50 60
+#
+Enter your choice: 2
+Enter element to insert at beginning: 5
+#
+Enter your choice: 10
+Linked List: 5 10 20 30 40 50 60
+#
+Enter your choice: 3
+Enter element to insert at end: 65
+#
+Enter your choice: 10
+Linked List: 5 10 20 30 40 50 60 65
+#
+Enter your choice: 4
+Enter element to insert: 35
+Enter position to insert at: 4
+#
+Enter your choice: 10
+Linked List: 5 10 20 30 35 40 50 60 65
+#
+Enter your choice: 5
+Enter element to delete: 35
+#
+Enter your choice: 10
+Linked List: 5 10 20 30 40 50 60 65
+#
+Enter your choice: 6
+Enter element to search: 40
+Data found at position 5
+#
+Enter your choice: 7
+#
+Enter your choice: 10
+Linked List: 5 10 20 30 40 50 60 65
+#
+Enter your choice: 8
+Enter data to modify: 5
+Enter new data: 100
+#
+Enter your choice: 10
+Linked List: 100 10 20 30 40 50 60 65
+#
+Enter your choice: 7
+#
+Enter your choice: 10
+Linked List: 10 20 30 40 50 60 65 100
+#
+Enter your choice: 9
+#
+Enter your choice: 10
+Linked List: 100 65 60 50 40 30 20 10
+#
+Enter your choice: 11
+Exiting…
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
 
 #Q3)Program to create Doubly Linked List.
@@ -452,6 +520,42 @@ while True:
     else:
         print("Invalid choice! Please enter a number between 1 and 11.")
 
+OUTPUT
+Enter your choice: 1
+Enter the number of nodes: 4
+Enter the data for node 1: 10
+Enter the data for node 2: 20
+Enter the data for node 3: 30
+Enter the data for node 4: 4
+#
+Enter your choice: 10
+10<->20<->30<->4<->None
+#
+Enter your choice: 2
+Enter the data to insert at the beginning: 100
+#
+Enter your choice: 10
+100<->10<->20<->30<->4<->None
+#
+Enter your choice: 3
+Enter the data to insert at the end: 300
+#
+Enter your choice: 5
+Enter the data to delete: 40
+#
+Enter your choice: 7
+List sorted!
+#
+Enter your choice: 10
+4<->10<->20<->30<->100<->300<->None
+#
+Enter your choice: 9
+List reversed!
+#
+Enter your choice: 10
+300<->100<->30<->20<->10<->4<->None
+#
+Enter your choice: 11
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q4)circular singly linked list
@@ -543,6 +647,31 @@ while True:
         break
     else:
         print("Invalid choice. Please enter a valid option.")
+
+OUTPUT
+Enter your choice: 1
+Enter the element to be inserted: 10
+#
+Enter your choice: 1
+Enter the element to be inserted: 100
+#
+Enter your choice: 3
+Circular linked list:
+10<->100<->
+#
+Enter your choice: 1
+Enter the element to be inserted: 200
+#
+Enter your choice: 2
+Enter the element to be deleted: 100
+#
+Enter your choice: 3
+Circular linked list:
+10<->200<->
+#
+Enter your choice: 4
+Exiting…
+
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -641,6 +770,17 @@ while(True):
     if ch == 'o':
         print(s.pop())
 
+OUTPUT
+Eneter ur choice p
+Enter an element to be pushed in stack 11
+#
+p 22
+p 33
+p 44
+p 55
+e
+
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q7)stack using Linked List 
@@ -703,6 +843,17 @@ while(True):
     if ch == 'o':
         print(MyStack.pop())
 
+OUTPUT
+Eneter ur choice p
+Enter an element to be pushed in stack 12
+#
+Eneter ur choice o
+12
+#
+Eneter ur choice o
+e
+
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q8)Program To Convert Infix To Postfix Expression
@@ -730,6 +881,11 @@ def infixToPostfix(expression):
 expression = input('Enter infix expression ')
 print('infix notation: ',expression)
 print('postfix notation: ',infixToPostfix(expression))
+
+OUTPUT
+Enter infix expression A+B/C-D*E+F
+infix notation: A+B/C-D*E+F
+postfix notation: ABC/+DE*-F+
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
@@ -769,6 +925,10 @@ expression = input("Enter the postfix expression: ")
 result = postfix_evaluation(expression)
 print("Result:", result)
 
+OUTPUT
+Enter the postfix expression: 7532^*922^-/+64*+
+Result: 40.0
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q10)program for matching parenthesis
@@ -795,6 +955,10 @@ if check_matching_parentheses(input_str):
     print("Parentheses are matching.")
 else:
     print("Parentheses are not matching.")
+
+OUTPUT
+Enter a string with parentheses: ([{}])
+Parentheses are matching.
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -841,6 +1005,11 @@ if is_palindrome(input_string):
 else:
     print(input_string, "is not a palindrome.")
 
+OUTPUT
+Enter a string: radar
+radar is a palindrome.
+
+
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -884,6 +1053,11 @@ input_string = input("Enter a string: ")
 reversed_string = reverse_string(input_string)
 print("Reversed string:", reversed_string)
 
+OUTPUT
+Enter a string: Gaurav
+Reversed string: varuaG
+
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q13)program for queue implementation using array
@@ -925,6 +1099,15 @@ while(True):
         print(q.Enqueue(i))#prints True
     if ch == 'd':
         print(q.Dequeue())
+
+OUTPUT
+a 23
+a 34
+d 23
+d 34
+d
+e
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q14)program for queue implementation using linked list
@@ -988,6 +1171,14 @@ while(True):
     if ch == 'd':
         print(My_q.delete())
 
+OUTPUT
+a 20 
+a 40
+d 20
+d 40
+d
+e
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 #Q15) program for circular queue using array
@@ -1033,6 +1224,14 @@ while(True):
         print(q.Enqueue(i))#prints True
     if ch == 'd':
         print(q.Dequeue())
+
+OUTPUT
+a 10
+a 20
+d 10
+d 20
+d 
+e
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1140,6 +1339,16 @@ print(arr1)
 k = int (input('Enter elemet to be searched in list'))
 l_search(arr1, k)
 
+output
+Enter array ele and enter done when finished 12
+Enter array ele and enter done when finished 23
+Enter array ele and enter done when finished 233
+Enter array ele and enter done when finished done
+Entered array:
+[12, 23, 233]
+Enter elemet to be searched in list 233
+233 found at location 3
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@
 
 Q17B
@@ -1171,6 +1380,15 @@ if find == -1:
     print('Element not found')
 else:
     print('%d found at location %d' % (k, find+1))
+OUTPUT
+Enter array ele and enter done when finished 10
+Enter array ele and enter done when finished 20
+Enter array ele and enter done when finished 30
+Enter array ele and enter done when finished done
+Entered array:
+[10, 20, 30]
+Enter element to be searched in list 20
+20 found at location 2
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1187,6 +1405,10 @@ print('Before sorting',arr)
 
 bubble_sort(arr)
 print('Sorted arr',arr)
+
+OUTPUT
+Before sorting [12, 34, 45, 6, 8, 9, -10]
+Sorted arr [-10, 6, 8, 9, 12, 34, 45]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@
 
@@ -1207,6 +1429,11 @@ numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 print("Original array:", numbers)
 insertion_sort(numbers)
 print("Sorted array:", numbers)
+
+OUTPUT
+Enter numbers separated by space: 10 20 22 5 2 50
+Original array: [10, 20, 22, 5, 2, 50]
+Sorted array: [2, 5, 10, 20, 22, 50]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1256,6 +1483,9 @@ alist = [54,26,93,17,77,31,44,55,20]
 quickSort(alist)
 print(alist)
 
+OUTPUT
+[17, 20, 26, 31, 44, 54, 55, 77, 93]
+
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
@@ -1287,6 +1517,13 @@ shellSort(arr)
 
 print("Sorted array:")
 print(arr)
+
+OUTPUT
+Enter the elements of the array: 10 90 2 34 100
+Original array:
+[10, 90, 2, 34, 100]
+Sorted array:
+[2, 10, 34, 90, 100]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@
 
@@ -1327,6 +1564,11 @@ arr = [int(num) for num in arr]
 print("Input array:", arr)
 heapSort(arr)
 print("Sorted array:", arr)
+
+OUTPUT
+Enter elements of the array separated by space: 100 20 40 50 10 30
+Input array: [100, 20, 40, 50, 10, 30]
+Sorted array: [10, 20, 30, 40, 50, 100]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
