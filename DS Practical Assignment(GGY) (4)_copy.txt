@@ -1,0 +1,2074 @@
+tshorn2gz
+December 7, 2023
+[ ]: #Name:-Gaurav Gajanan Yeole
+#MCA (DS)
+#Data Structures Using Python
+#Roll No:-ADT23MGTM0925
+[2]: #Gaurav Gajanan Yeole.
+#Q1) Write a Program for implementation of array operations.
+#Create an Array
+b=[2,15,3,4,25,50,43,45,45,34,23]
+#1)Accessing Array Elements
+for i in range(1,6):
+print(b[i])
+#2)sort the array
+b.sort()
+print("After sorting:-",b)
+#3)reverse
+b.reverse()
+print("Reverse:-",b)
+#4)removeing elements
+b.remove(50)
+print("Remove:-",b)
+#5)Insert
+b.insert(0,100)
+print("Insert:-",b)
+#6)Append
+b.append(101)
+print("Append:-",b)
+#7)Extend
+b.extend([200,210])
+
+1
+
+print("Extend:-",b)
+#8)Slicing
+A=b[1:3]
+print("slicing:-",A)
+#9)Length
+length=len(b)
+print("length of an Array:-",length)
+#10)Count
+total=b.count(45)
+print("Total:-",total)
+15
+3
+4
+25
+50
+After sorting:- [2, 3, 4, 15, 23, 25, 34, 43, 45, 45, 50]
+Reverse:- [50, 45, 45, 43, 34, 25, 23, 15, 4, 3, 2]
+Remove:- [45, 45, 43, 34, 25, 23, 15, 4, 3, 2]
+Insert:- [100, 45, 45, 43, 34, 25, 23, 15, 4, 3, 2]
+Append:- [100, 45, 45, 43, 34, 25, 23, 15, 4, 3, 2, 101]
+Extend:- [100, 45, 45, 43, 34, 25, 23, 15, 4, 3, 2, 101, 200, 210]
+slicing:- [45, 45]
+length of an Array:- 14
+Total:- 2
+[1]: #Gaurav Gajanan Yeole.
+#Q2)Program to create Singly Linked List.
+class Node:
+def __init__(self, data=None):
+self.data = data
+self.next = None
+class LinkedList:
+def __init__(self):
+self.head = None
+def insert_at_beginning(self, data):
+new_node = Node(data)
+new_node.next = self.head
+self.head = new_node
+def insert_at_end(self, data):
+new_node = Node(data)
+
+2
+
+if self.head is None:
+self.head = new_node
+return
+curr_node = self.head
+while curr_node.next:
+curr_node = curr_node.next
+curr_node.next = new_node
+def insert_at_middle(self, data, position):
+new_node = Node(data)
+curr_node = self.head
+for _ in range(1, position):
+if curr_node is None:
+print("Position out of range")
+return
+curr_node = curr_node.next
+new_node.next = curr_node.next
+curr_node.next = new_node
+def delete_node(self, data):
+curr_node = self.head
+if curr_node and curr_node.data == data:
+self.head = curr_node.next
+curr_node = None
+return
+prev = None
+while curr_node and curr_node.data != data:
+prev = curr_node
+curr_node = curr_node.next
+if curr_node is None:
+print("Data not found.")
+return
+prev.next = curr_node.next
+curr_node = None
+def search_node(self, data):
+curr_node = self.head
+position = 1
+while curr_node:
+if curr_node.data == data:
+print(f"Data found at position {position}")
+return
+curr_node = curr_node.next
+
+3
+
+position += 1
+print("Data not found.")
+def sort_list(self):
+curr_node = self.head
+elements = []
+while curr_node:
+elements.append(curr_node.data)
+curr_node = curr_node.next
+elements.sort()
+self.head = None
+for element in elements:
+self.insert_at_end(element)
+def modify_node(self, old_data, new_data):
+curr_node = self.head
+while curr_node:
+if curr_node.data == old_data:
+curr_node.data = new_data
+return
+curr_node = curr_node.next
+print("Data not found.")
+def reverse_list(self):
+prev_node = None
+curr_node = self.head
+while curr_node:
+next_node = curr_node.next
+curr_node.next = prev_node
+prev_node = curr_node
+curr_node = next_node
+self.head = prev_node
+def display_list(self):
+curr_node = self.head
+while curr_node:
+print(curr_node.data, end=" ")
+curr_node = curr_node.next
+print()
+linked_list = LinkedList()
+while True:
+print("1. Create a singly linked list")
+print("2. Insert at beginning")
+print("3. Insert at end")
+print("4. Insert at middle")
+
+4
+
+print("5. Delete a node")
+print("6. Search a node")
+print("7. Sort the list")
+print("8. Modify a node")
+print("9. Reverse the list")
+print("10. Display the list")
+print("11. Exit")
+choice = int(input("Enter your choice: "))
+if choice == 1:
+n = int(input("Enter the number of elements: "))
+for _ in range(n):
+data = int(input("Enter element: "))
+linked_list.insert_at_end(data)
+print("Linked list created successfully.")
+elif choice == 2:
+data = int(input("Enter element to insert at beginning: "))
+linked_list.insert_at_beginning(data)
+print("Element inserted successfully.")
+elif choice == 3:
+data = int(input("Enter element to insert at end: "))
+linked_list.insert_at_end(data)
+print("Element inserted successfully.")
+elif choice == 4:
+data = int(input("Enter element to insert: "))
+position = int(input("Enter position to insert at: "))
+linked_list.insert_at_middle(data, position)
+print("Element inserted successfully.")
+elif choice == 5:
+data = int(input("Enter element to delete: "))
+linked_list.delete_node(data)
+print("Element deleted successfully.")
+elif choice == 6:
+data = int(input("Enter element to search: "))
+linked_list.search_node(data)
+elif choice == 7:
+linked_list.sort_list()
+print("List sorted successfully.")
+elif choice == 8:
+old_data = int(input("Enter data to modify: "))
+
+5
+
+new_data = int(input("Enter new data: "))
+linked_list.modify_node(old_data, new_data)
+print("Node modified successfully.")
+elif choice == 9:
+linked_list.reverse_list()
+print("List reversed successfully.")
+elif choice == 10:
+print("Linked List: ", end="")
+linked_list.display_list()
+elif choice == 11:
+break
+else:
+print("Invalid choice! Please try again.")
+print()
+print("Exiting...")
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 1
+Enter the number of elements:
+Enter element: 10
+Enter element: 20
+Enter element: 30
+Enter element: 40
+Enter element: 50
+Enter element: 60
+
+6
+
+Linked list created successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+
+6
+
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 10 20 30 40 50 60
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 2
+Enter element to insert at beginning:
+
+5
+
+Element inserted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 5 10 20 30 40 50 60
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+7
+
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 3
+Enter element to insert at end:
+
+65
+
+Element inserted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 5 10 20 30 40 50 60 65
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 4
+Enter element to insert: 35
+Enter position to insert at:
+
+4
+
+Element inserted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+8
+
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 5 10 20 30 35 40 50 60 65
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 5
+Enter element to delete:
+
+35
+
+Element deleted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 5 10 20 30 40 50 60 65
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+9
+
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 6
+Enter element to search:
+
+40
+
+Data found at position 5
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+7
+
+List sorted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 5 10 20 30 40 50 60 65
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10
+
+10. Display the list
+11. Exit
+Enter your choice: 8
+Enter data to modify:
+Enter new data: 100
+
+5
+
+Node modified successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 100 10 20 30 40 50 60 65
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+7
+
+List sorted successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11
+
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 10 20 30 40 50 60 65 100
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+9
+
+List reversed successfully.
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+Linked List: 100 65 60 50 40 30 20 10
+1. Create a singly linked list
+2. Insert at beginning
+3. Insert at end
+4. Insert at middle
+5. Delete a node
+6. Search a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+11
+12
+
+Exiting…
+[1]: #Gaurav Gajanan Yeole.
+#Q3)Program to create Doubly Linked List.
+class Node:
+def __init__(self, data):
+self.data = data
+self.prev = None
+self.next = None
+class DoublyLinkedList:
+def __init__(self):
+self.head = None
+def create(self):
+n = int(input("Enter the number of nodes: "))
+if n == 0:
+return
+data = int(input("Enter the data for node 1: "))
+new_node = Node(data)
+self.head = new_node
+for i in range(1, n):
+data = int(input(f"Enter the data for node {i+1}: "))
+new_node = Node(data)
+current = self.head
+while current.next:
+current = current.next
+current.next = new_node
+new_node.prev = current
+def insert_begin(self):
+if not self.head:
+print("List is empty!")
+return
+data = int(input("Enter the data to insert at the beginning: "))
+new_node = Node(data)
+new_node.next = self.head
+self.head.prev = new_node
+self.head = new_node
+def insert_end(self):
+if not self.head:
+print("List is empty!")
+return
+
+13
+
+data = int(input("Enter the data to insert at the end: "))
+new_node = Node(data)
+current = self.head
+while current.next:
+current = current.next
+current.next = new_node
+new_node.prev = current
+def insert_middle(self):
+if not self.head:
+print("List is empty!")
+return
+data = int(input("Enter the data to insert: "))
+pos = int(input("Enter the position to insert at: "))
+new_node = Node(data)
+current = self.head
+count = 1
+while count < pos - 1:
+current = current.next
+count += 1
+new_node.prev = current
+new_node.next = current.next
+current.next.prev = new_node
+current.next = new_node
+def delete(self):
+if not self.head:
+print("List is empty!")
+return
+data = int(input("Enter the data to delete: "))
+current = self.head
+if current.data == data:
+self.head = current.next
+if self.head:
+self.head.prev = None
+current.next = None
+print("Node deleted!")
+return
+while current.next:
+if current.data == data:
+
+14
+
+break
+current = current.next
+if current.data != data:
+print("Node not found!")
+return
+current.prev.next = current.next
+if current.next:
+current.next.prev = current.prev
+current.prev = None
+current.next = None
+print("Node deleted!")
+def search(self):
+if not self.head:
+print("List is empty!")
+return
+data = int(input("Enter the data to search: "))
+current = self.head
+count = 1
+while current:
+if current.data == data:
+print(f"Node found at position {count}")
+return
+current = current.next
+count += 1
+print("Node not found!")
+def sort(self):
+if not self.head:
+print("List is empty!")
+return
+current = self.head
+while current:
+temp = current.next
+while temp:
+if current.data > temp.data:
+current.data, temp.data = temp.data, current.data
+temp = temp.next
+current = current.next
+print("List sorted!")
+
+15
+
+def modify(self):
+if not self.head:
+print("List is empty!")
+return
+data = int(input("Enter the data to modify: "))
+new_data = int(input("Enter the new data: "))
+current = self.head
+while current:
+if current.data == data:
+current.data = new_data
+print("Node modified!")
+return
+current = current.next
+print("Node not found!")
+def reverse(self):
+if not self.head:
+print("List is empty!")
+return
+current = self.head
+while current.next:
+current.next, current.prev = current.prev, current.next
+current = current.prev
+current.next, current.prev = current.prev, current.next
+self.head = current
+print("List reversed!")
+def display(self):
+if not self.head:
+print("List is empty!")
+return
+curr = self.head
+while curr:
+print(curr.data,end='<->')
+curr = curr.next
+print('None')
+# Main Program
+dll = DoublyLinkedList()
+while True:
+
+16
+
+print("***** Doubly Linked List Menu *****")
+print("1. Create a list")
+print("2. Insert at the beginning")
+print("3. Insert at the end")
+print("4. Insert at a middle position")
+print("5. Delete a node")
+print("6. Search for a node")
+print("7. Sort the list")
+print("8. Modify a node")
+print("9. Reverse the list")
+print("10. Display the list")
+print("11. Exit")
+choice = int(input("Enter your choice: "))
+if choice == 1:
+dll.create()
+elif choice == 2:
+dll.insert_begin()
+elif choice == 3:
+dll.insert_end()
+elif choice == 4:
+dll.insert_middle()
+elif choice == 5:
+dll.delete()
+elif choice == 6:
+dll.search()
+elif choice == 7:
+dll.sort()
+elif choice == 8:
+dll.modify()
+elif choice == 9:
+dll.reverse()
+elif choice == 10:
+dll.display()
+elif choice == 11:
+break
+else:
+print("Invalid choice! Please enter a number between 1 and 11.")
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+
+17
+
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 1
+Enter the number of nodes:
+Enter the data for node 1:
+Enter the data for node 2:
+Enter the data for node 3:
+Enter the data for node 4:
+
+4
+10
+20
+30
+4
+
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+10<->20<->30<->4<->None
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 2
+Enter the data to insert at the beginning:
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+18
+
+100
+
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+100<->10<->20<->30<->4<->None
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 3
+Enter the data to insert at the end:
+
+300
+
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice: 5
+Enter the data to delete:
+
+40
+
+Node not found!
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+19
+
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+7
+
+List sorted!
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+10
+
+4<->10<->20<->30<->100<->300<->None
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+9
+
+List reversed!
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+20
+
+11. Exit
+Enter your choice:
+
+10
+
+300<->100<->30<->20<->10<->4<->None
+***** Doubly Linked List Menu *****
+1. Create a list
+2. Insert at the beginning
+3. Insert at the end
+4. Insert at a middle position
+5. Delete a node
+6. Search for a node
+7. Sort the list
+8. Modify a node
+9. Reverse the list
+10. Display the list
+11. Exit
+Enter your choice:
+
+11
+
+[2]: #Gaurav Gajanan Yeole
+#Q4)circular singly linked list
+class Node:
+def __init__(self, data):
+self.data = data
+self.next = None
+class CircularLinkedList:
+def __init__(self):
+self.head = None
+# Insertion at the end of the list
+def insert(self, data):
+newNode = Node(data)
+if not self.head:
+self.head = newNode
+self.head.next = self.head
+else:
+curr = self.head
+while curr.next != self.head:
+curr = curr.next
+curr.next = newNode
+newNode.next = self.head
+# Deletion by key
+def delete(self, key):
+if not self.head:
+print("List is empty.")
+return
+
+21
+
+elif self.head.data == key:
+if self.head.next == self.head:
+self.head = None
+else:
+curr = self.head
+while curr.next != self.head:
+curr = curr.next
+curr.next = self.head.next
+self.head = self.head.next
+else:
+prev = self.head
+curr = self.head.next
+while curr != self.head:
+if curr.data == key:
+prev.next = curr.next
+return
+prev = curr
+curr = curr.next
+print("Key not found.")
+# Display the circular linked list
+def display(self):
+if not self.head:
+print("List is empty.")
+return
+curr = self.head
+while True:
+print(curr.data, end="<->")
+curr = curr.next
+if curr == self.head:
+break
+print()
+
+# Menu-driven program
+clist = CircularLinkedList()
+while True:
+print("\nCircular Linked List Operations")
+print("1. Insert an element")
+print("2. Delete an element")
+print("3. Display the list")
+print("4. Exit")
+choice = int(input("Enter your choice: "))
+if choice == 1:
+
+22
+
+data = int(input("Enter the element to be inserted: "))
+clist.insert(data)
+print("Element", data, "inserted successfully.")
+elif choice == 2:
+key = int(input("Enter the element to be deleted: "))
+clist.delete(key)
+elif choice == 3:
+print("Circular linked list:")
+clist.display()
+elif choice == 4:
+print("Exiting...")
+break
+else:
+print("Invalid choice. Please enter a valid option.")
+
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice: 1
+Enter the element to be inserted:
+
+10
+
+Element 10 inserted successfully.
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice: 1
+Enter the element to be inserted:
+
+100
+
+Element 100 inserted successfully.
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice:
+
+3
+
+Circular linked list:
+10<->100<->
+Circular Linked List Operations
+
+23
+
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice: 1
+Enter the element to be inserted:
+
+200
+
+Element 200 inserted successfully.
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice: 2
+Enter the element to be deleted:
+
+100
+
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice:
+
+3
+
+Circular linked list:
+10<->200<->
+Circular Linked List Operations
+1. Insert an element
+2. Delete an element
+3. Display the list
+4. Exit
+Enter your choice:
+
+4
+
+Exiting…
+[34]: #Gaurav Gajanan Yeole
+# Q5)circular doubly linked list
+class Node:
+def __init__(self, data):
+self.data = data
+self.next = None
+self.prev = None
+# Circular Doubly Linked List class
+class CircularDoublyLinkedList:
+
+24
+
+def __init__(self):
+self.head = None
+# Add a node at the end of the list
+def append(self, data):
+new_node = Node(data)
+if self.head is None:
+self.head = new_node
+new_node.next = self.head
+new_node.prev = self.head
+else:
+last_node = self.head.prev
+last_node.next = new_node
+new_node.prev = last_node
+new_node.next = self.head
+self.head.prev = new_node
+# Display the circular doubly linked list
+def display(self):
+if self.head is None:
+print("List is empty")
+else:
+current = self.head
+while True:
+print(current.data, end='<->')
+current = current.next
+if current == self.head:
+break
+print()
+
+# Create a circular doubly linked list and perform operations
+cdll = CircularDoublyLinkedList()
+cdll.append(1)
+cdll.append(2)
+cdll.append(3)
+cdll.append(4)
+cdll.append(5)
+# Display the circular doubly linked list
+cdll.display()
+# Output: 1 2 3 4 5
+1<->2<->3<->4<->5<->
+
+25
+
+[33]: #Gaurav Gajanan Yeole
+#Q6)stack using array
+class Stack:
+#Constructor
+def __init__(self):
+self.stack = list()
+self.maxSize = 4
+self.top = -1
+#Adds element to the Stack
+def push(self,data):
+if self.top==self.maxSize-1:
+return ("Stack Full!")
+self.top += 1
+self.stack.append(data)
+return True
+#Removes element from the stack
+def pop(self):
+if self.top==-1:
+return ("Stack Empty!")
+item = self.stack.pop()
+self.top -= 1
+return item
+#Size of the stack
+def size(self):
+return self.top
+s = Stack()
+while(True):
+print('p : Push')
+print('o : Pop')
+print('e : Exit')
+ch = input('Eneter ur choice')
+if ch == 'e':
+break
+if ch == 'p':
+i= int(input('Enter an element to be pushed in stack'))
+print(s.push(i))#prints True
+if ch == 'o':
+print(s.pop())
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 11
+
+26
+
+True
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 22
+True
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p33
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 33
+True
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 44
+True
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 55
+Stack Full!
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice e
+[32]: #Gaurav Gajanan Yeole
+#Q7)stack using Linked List
+class Node:
+# Class to create nodes of linked list
+# constructor initializes node automatically
+def __init__(self, data):
+self.data = data
+
+27
+
+self.next = None
+class Stack:
+# top is default NULL
+def __init__(self):
+self.top = None
+# Checks if stack is empty
+def isempty(self):
+if self.top == None:
+return True
+else:
+return False
+# Method to add data to the stack
+# adds to the start of the stack
+def push(self, data):
+if self.top == None:
+self.top = Node(data)
+else:
+new1 = Node(data)
+new1.next = self.top
+self.top = new1
+# Remove element that is the current top (start of the stack)
+def pop(self):
+if self.isempty():
+return ("stack empty")
+else:
+# Removes the top node and makes
+# the preceding one the new top
+curr = self.top
+self.top = self.top.next
+curr.next = None
+return curr.data
+MyStack = Stack()
+while(True):
+print('p : Push')
+print('o : Pop')
+print('e : Exit')
+ch = input('Eneter ur choice')
+if ch == 'e':
+break
+
+28
+
+if ch == 'p':
+i= int(input('Enter an element to be pushed in stack'))
+MyStack.push(i)
+if ch == 'o':
+print(MyStack.pop())
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice p
+Enter an element to be pushed in stack 12
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice o
+12
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice o
+stack empty
+p : Push
+o : Pop
+e : Exit
+Eneter ur choice e
+[3]: #Gaurav Gajanan Yeole
+#Q8)Program To Convert Infix To Postfix Expression
+Operators = set(['+', '-', '*', '/', '(', ')', '^'])
+Priority = {'+':1, '-':1, '*':2, '/':2, '^':3}
+def infixToPostfix(expression):
+stack = []
+output = ''
+for character in expression:
+if character not in Operators:
+output+= character
+elif character=='(':
+stack.append('(')
+elif character==')':
+while stack and stack[-1]!= '(':
+output+=stack.pop()
+stack.pop()
+else:
+
+29
+
+while stack and stack[-1]!='(' and␣
+Priority[character]<=Priority[stack[-1]]:
+output+=stack.pop()
+stack.append(character)
+while stack:
+output+=stack.pop()
+return output
+expression = input('Enter infix expression ')
+print('infix notation: ',expression)
+print('postfix notation: ',infixToPostfix(expression))
+↪
+
+Enter infix expression
+
+A+B/C-D*E+F
+
+infix notation: A+B/C-D*E+F
+postfix notation: ABC/+DE*-F+
+[5]: #Gaurav Gajanan Yeole
+#Q9)program for postfix evaluation
+def postfix_evaluation(expression):
+stack = []
+for char in expression:
+if char.isdigit():
+stack.append(int(char))
+else:
+if len(stack) >= 2:
+operand2 = stack.pop()
+operand1 = stack.pop()
+if char == "+":
+stack.append(operand1 + operand2)
+elif char == "-":
+stack.append(operand1 - operand2)
+elif char == "*":
+stack.append(operand1 * operand2)
+elif char == "/":
+stack.append(float(operand1) / operand2)
+elif char == "^":
+stack.append(operand1 ** operand2)
+else:
+return "Invalid expression"
+if len(stack) == 1:
+return stack.pop()
+else:
+return "Invalid expression"
+
+30
+
+expression = input("Enter the postfix expression: ")
+result = postfix_evaluation(expression)
+print("Result:", result)
+Enter the postfix expression:
+
+7532^*922^-/+64*+
+
+Result: 40.0
+[29]: #Gaurav Gajanan Yeole
+#Q10)program for matching parenthesis
+def check_matching_parentheses(input_string):
+opening_parentheses = ['(', '[', '{']
+closing_parentheses = [')', ']', '}']
+stack = []
+for char in input_string:
+if char in opening_parentheses:
+stack.append(char)
+elif char in closing_parentheses:
+if not stack:
+return False
+current_opening = stack.pop()
+if opening_parentheses.index(current_opening) !=␣
+↪closing_parentheses.index(char):
+return False
+return len(stack) == 0
+
+input_str = input("Enter a string with parentheses: ")
+if check_matching_parentheses(input_str):
+print("Parentheses are matching.")
+else:
+print("Parentheses are not matching.")
+Enter a string with parentheses:
+
+([{}])
+
+Parentheses are matching.
+[25]: #Gaurav Gajanan Yeole
+#Q11)program to check inout string is palindrome or not
+class Stack:
+def __init__(self):
+self.items = []
+def push(self, item):
+self.items.append(item)
+
+31
+
+def pop(self):
+if not self.is_empty():
+return self.items.pop()
+def is_empty(self):
+return len(self.items) == 0
+def peek(self):
+if not self.is_empty():
+return self.items[-1]
+def size(self):
+return len(self.items)
+
+def is_palindrome(string):
+stack = Stack()
+for char in string:
+stack.push(char)
+reverse_string = ""
+while not stack.is_empty():
+reverse_string += stack.pop()
+return string == reverse_string
+
+# Test the program
+input_string = input("Enter a string: ")
+if is_palindrome(input_string):
+print(input_string, "is a palindrome.")
+else:
+print(input_string, "is not a palindrome.")
+Enter a string:
+
+radar
+
+radar is a palindrome.
+[22]: #Gaurav Gajanan Yeole
+#Q12)program for reverse of string using stack
+class Stack:
+def __init__(self):
+self.items = []
+def is_empty(self):
+return len(self.items) == 0
+
+32
+
+def push(self, item):
+self.items.append(item)
+def pop(self):
+if not self.is_empty():
+return self.items.pop()
+def peek(self):
+if not self.is_empty():
+return self.items[-1]
+
+def reverse_string(string):
+stack = Stack()
+# Push each character of the string into the stack
+for character in string:
+stack.push(character)
+# Pop each character from the stack to get the reversed string
+reversed_string = ""
+while not stack.is_empty():
+reversed_string += stack.pop()
+return reversed_string
+
+# Test the program
+input_string = input("Enter a string: ")
+reversed_string = reverse_string(input_string)
+print("Reversed string:", reversed_string)
+Enter a string:
+
+Gaurav
+
+Reversed string: varuaG
+[21]: #Gaurav Gajanan Yeole
+#Q13)program for queue implementation using array
+class Queue:
+#Constructor
+def __init__(self, c):
+self.queue = []
+self.front = 0
+self.rear = -1
+self.capacity = c
+#Adds element to the queue
+def Enqueue(self,data):
+if self.rear>=self.capacity-1:
+33
+
+return ("Queue is Full!")
+self.rear += 1
+self.queue.append(data)
+return True
+#Removes element from the queue
+def Dequeue(self):
+if self.front == self.rear + 1:
+return ("Queue Empty!")
+item = self.queue[self.front]
+self.front += 1
+return item
+
+q = Queue(4)
+while(True):
+print('a : Add')
+print('d : Delete')
+print('e : Exit')
+ch = input('Eneter ur choice')
+if ch == 'e':
+break
+if ch == 'a':
+i= int(input('Enter an element to be added in queue'))
+print(q.Enqueue(i))#prints True
+if ch == 'd':
+print(q.Dequeue())
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice a
+Enter an element to be added in queue 23
+True
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice a
+Enter an element to be added in queue 34
+True
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice d
+34
+
+23
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice d
+34
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice d
+Queue Empty!
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice e
+[20]: #Gaurav Gajanan Yeole
+#Q14)program for queue implementation using linked list
+class Node:
+# Class to create nodes of linked list
+# constructor initializes node automatically
+def __init__(self, data):
+self.data = data
+self.next = None
+
+class Queue:
+# top is default NULL
+def __init__(self):
+self.front = None
+self.rear = None
+
+# Method to add data to the stack
+# adds to the start of the stack
+def Add(self, data):
+if self.front == None:
+self.front = Node(data)
+self.rear = self.front
+else:
+
+35
+
+new1 = Node(data)
+self.rear.next = new1
+self.rear = new1
+# Remove element that is the current top (start of the stack)
+def delete(self):
+if
+
+self.front == None:
+return ("Queue Empty!")
+
+else:
+# Removes the top node and makes
+# the preceding one the new top
+curr = self.front
+self.front = self.front.next
+curr.next = None
+return curr.data
+My_q = Queue()
+
+while(True):
+print('a : add')
+print('d : delete')
+print('e : Exit')
+ch = input('Eneter ur choice')
+if ch == 'e':
+break
+if ch == 'a':
+i= int(input('Enter an element to be pushed in stack'))
+My_q.Add(i)
+if ch == 'd':
+print(My_q.delete())
+a : add
+d : delete
+e : Exit
+Eneter ur choice a
+Enter an element to be pushed in stack 20
+a : add
+d : delete
+e : Exit
+Eneter ur choice a
+Enter an element to be pushed in stack 40
+a : add
+d : delete
+
+36
+
+e : Exit
+Eneter ur choice d
+20
+a : add
+d : delete
+e : Exit
+Eneter ur choice d
+40
+a : add
+d : delete
+e : Exit
+Eneter ur choice d
+Queue Empty!
+a : add
+d : delete
+e : Exit
+Eneter ur choice e
+[19]: #Gaurav Gajanan Yeole
+#Q15) program for circular queue using array
+class Queue:
+#Constructor
+def __init__(self, c):
+self.front = 0
+self.rear = -1
+self.capacity = c
+self.cnt = 0
+self.queue = [None] *self.capacity
+#Adds element to the queue
+def Enqueue(self,data):
+if self.cnt ==self.capacity:
+return ("Queue is Full!")
+self.rear = (self.rear +1) % self.capacity
+self.queue[self.rear] = data
+self.cnt += 1
+return True
+#Removes element from the queue
+def Dequeue(self):
+if self.cnt == 0:
+return ("Queue Empty!")
+item = self.queue[self.front]
+self.front = (self.front + 1) % self.capacity
+
+37
+
+self.cnt -= 1
+return item
+
+q = Queue(3)
+while(True):
+print('a : Add')
+print('d : Delete')
+print('e : Exit')
+ch = input('Eneter ur choice')
+if ch == 'e':
+break
+if ch == 'a':
+i= int(input('Enter an element to be added in queue'))
+print(q.Enqueue(i))#prints True
+if ch == 'd':
+print(q.Dequeue())
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice a
+Enter an element to be added in queue 10
+True
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice a
+Enter an element to be added in queue 20
+True
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice d
+10
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice d
+20
+a : Add
+d : Delete
+
+38
+
+e : Exit
+Eneter ur choice d
+Queue Empty!
+a : Add
+d : Delete
+e : Exit
+Eneter ur choice e
+[3]: #Gaurav Gajanan Yeole
+#Q16)program for binary search tree
+class BSTNode:
+def __init__(self, data):
+self.data = data
+self.leftChild = None
+self.rightChild = None
+def insertNode(rootNode, nodeValue):
+if rootNode.data == None:
+rootNode.data = nodeValue
+elif nodeValue <= rootNode.data:
+if rootNode.leftChild is None:
+rootNode.leftChild = BSTNode(nodeValue)
+else:
+insertNode(rootNode.leftChild, nodeValue)
+else:
+if rootNode.rightChild is None:
+rootNode.rightChild = BSTNode(nodeValue)
+else:
+insertNode(rootNode.rightChild, nodeValue)
+return "The node has been successfully inserted"
+def preOrderTraversal(rootNode):
+if not rootNode:
+return
+print(rootNode.data)
+preOrderTraversal(rootNode.leftChild)
+preOrderTraversal(rootNode.rightChild)
+def inOrderTraversal(rootNode):
+if not rootNode:
+return
+inOrderTraversal(rootNode.leftChild)
+print(rootNode.data)
+inOrderTraversal(rootNode.rightChild)
+def postOrderTraversal(rootNode):
+
+39
+
+if not rootNode:
+return
+postOrderTraversal(rootNode.leftChild)
+postOrderTraversal(rootNode.rightChild)
+print(rootNode.data)
+
+def searchNode(rootNode, nodeValue):
+if rootNode.data == nodeValue:
+print("The value is found")
+elif nodeValue < rootNode.data:
+if rootNode.leftChild.data == nodeValue:
+print("The value is found")
+else:
+searchNode(rootNode.leftChild, nodeValue)
+else:
+if rootNode.rightChild.data == nodeValue:
+print("The value is found")
+else:
+searchNode(rootNode.rightChild, nodeValue)
+
+newBST = BSTNode(None)
+insertNode(newBST, 70)
+insertNode(newBST,50)
+insertNode(newBST,90)
+insertNode(newBST, 30)
+insertNode(newBST,60)
+insertNode(newBST,80)
+insertNode(newBST,100)
+insertNode(newBST,20)
+insertNode(newBST,40)
+print('Inoreder traversal of tree 70,50,90,30,60,80,100,20,40 is')
+inOrderTraversal(newBST)
+Inoreder traversal of tree 70,50,90,30,60,80,100,20,40 is
+20
+30
+40
+50
+60
+70
+80
+
+40
+
+90
+100
+[9]: #Gaurav Gajanan Yeole
+#Q17)Linear search
+def l_search(arr, key):
+flag = False
+n= len(arr)
+for i in range(n):
+if arr[i] == key:
+print('%d found at location %d' %(key, i+1))
+flag = True
+break
+if i == n-1 and flag == False:
+print('Element not in list')
+arr1 = []
+while(True):
+str = input('Enter array ele and enter done when finished')
+if str == 'done':
+break
+else:
+arr1.append(int(str))
+print('Entered array:')
+print(arr1)
+k = int (input('Enter elemet to be searched in list'))
+l_search(arr1, k)
+Enter array ele and enter done when finished 12
+Enter array ele and enter done when finished 23
+Enter array ele and enter done when finished 233
+Enter array ele and enter done when finished done
+Entered array:
+[12, 23, 233]
+Enter elemet to be searched in list 233
+233 found at location 3
+[14]: #Gaurav Gajanan Yeole
+#Q17)Binary Search
+def bin_search(arr, key):
+low = 0
+high = len(arr)-1
+while low<= high:
+mid = (low + high)//2
+if arr[mid] == key:
+return mid
+
+41
+
+elif arr[mid] < key:
+low = mid + 1
+else:
+high = mid -1
+return -1
+arr1 = []
+while(True):
+str = input('Enter array ele and enter done when finished')
+if str == 'done':
+break
+else:
+arr1.append(int(str))
+print('Entered array:')
+print(arr1)
+k = int (input('Enter element to be searched in list'))
+find = bin_search(arr1, k)
+if find == -1:
+print('Element not found')
+else:
+print('%d found at location %d' % (k, find+1))
+Enter array ele and enter done when finished 10
+Enter array ele and enter done when finished 20
+Enter array ele and enter done when finished 30
+Enter array ele and enter done when finished done
+Entered array:
+[10, 20, 30]
+Enter element to be searched in list 20
+20 found at location 2
+[5]: #Gaurav Gajanan Yeole
+#Q18)Bubble Sort
+def bubble_sort(arr):
+n = len(arr)
+for i in range(n): #passes = n-1
+for j in range(0, n-1-i): #comparisions = n-1-i
+if (arr[j] > arr[j+1]):
+arr[j],arr[j+1] = arr[j+1],arr[j]
+arr = [12,34,45,6, 8, 9,-10]
+print('Before sorting',arr)
+bubble_sort(arr)
+print('Sorted arr',arr)
+Before sorting [12, 34, 45, 6, 8, 9, -10]
+Sorted arr [-10, 6, 8, 9, 12, 34, 45]
+42
+
+[38]: #Gaurav Gajanan Yeole
+#Q18)Insertiom Sort
+def insertion_sort(arr):
+for i in range(1, len(arr)):
+key = arr[i]
+j = i - 1
+while j >= 0 and arr[j] > key:
+arr[j + 1] = arr[j]
+j -= 1
+arr[j + 1] = key
+# Main program
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+print("Original array:", numbers)
+insertion_sort(numbers)
+print("Sorted array:", numbers)
+Enter numbers separated by space:
+
+10 20 22 5 2 50
+
+Original array: [10, 20, 22, 5, 2, 50]
+Sorted array: [2, 5, 10, 20, 22, 50]
+[4]: #Gaurav Gajanan Yeole
+#Q19)Quick Sort
+def quickSort(alist):
+quickSortHelper(alist,0,len(alist)-1)
+def quickSortHelper(alist,first,last):
+if first<last:
+splitpoint = partition(alist,first,last)
+quickSortHelper(alist,first,splitpoint-1)
+quickSortHelper(alist,splitpoint+1,last)
+
+def partition(alist,first,last):
+pivotvalue = alist[first]
+left = first+1
+right = last
+done = False
+while not done:
+while left <= right and alist[left] <= pivotvalue:
+left = left + 1
+
+43
+
+while alist[right] >= pivotvalue and right >= left:
+right = right -1
+if right < left:
+done = True
+else:
+temp = alist[left]
+alist[left] = alist[right]
+alist[right] = temp
+temp = pivotvalue
+alist[first] = alist[right]
+alist[right] = temp
+
+return right
+alist = [54,26,93,17,77,31,44,55,20]
+quickSort(alist)
+print(alist)
+[17, 20, 26, 31, 44, 54, 55, 77, 93]
+[39]: #Gaurav Gajanan Yeole
+#Q20)Shell Sort
+def shellSort(arr):
+n = len(arr)
+gap = n // 2
+while gap > 0:
+for i in range(gap, n):
+temp = arr[i]
+j = i
+while j >= gap and arr[j - gap] > temp:
+arr[j] = arr[j - gap]
+j -= gap
+arr[j] = temp
+gap //= 2
+# Taking input from the user
+arr = list(map(int, input("Enter the elements of the array: ").split()))
+print("Original array:")
+print(arr)
+
+44
+
+shellSort(arr)
+print("Sorted array:")
+print(arr)
+Enter the elements of the array:
+
+10 90 2 34 100
+
+Original array:
+[10, 90, 2, 34, 100]
+Sorted array:
+[2, 10, 34, 90, 100]
+[40]: #Gaurav Gajanan Yeole
+#Q20)Heap Sort
+def heapify(arr, n, i):
+largest = i
+left = 2 * i + 1
+right = 2 * i + 2
+if left < n and arr[i] < arr[left]:
+largest = left
+if right < n and arr[largest] < arr[right]:
+largest = right
+if largest != i:
+arr[i], arr[largest] = arr[largest], arr[i]
+heapify(arr, n, largest)
+
+# Swap elements
+
+# Function to perform heap sort
+def heapSort(arr):
+n = len(arr)
+# Building max heap
+for i in range(n // 2 - 1, -1, -1):
+heapify(arr, n, i)
+# Extracting elements from heap one by one
+for i in range(n - 1, 0, -1):
+arr[i], arr[0] = arr[0], arr[i] # Swap elements
+heapify(arr, i, 0)
+# Get user input for the array
+arr = input("Enter elements of the array separated by space: ").split()
+arr = [int(num) for num in arr]
+print("Input array:", arr)
+45
+
+heapSort(arr)
+print("Sorted array:", arr)
+Enter elements of the array separated by space:
+Input array: [100, 20, 40, 50, 10, 30]
+Sorted array: [10, 20, 30, 40, 50, 100]
+[ ]:
+
+46
+
+100 20 40 50 10
+
+30
+
+
