@@ -3,7 +3,7 @@
 - 🌱 I’m currently doing MCA in Data Science
 - 💞️ I’m looking to collaborate on web development projects
 - 📫 How to reach me : rutwiksindkar07@gmail.com
-- 😄 Pronouns:Rutwik
+- 😄 Pronouns : Rutwik
 
 
 <!---
